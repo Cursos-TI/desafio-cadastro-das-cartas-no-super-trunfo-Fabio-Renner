@@ -9,6 +9,8 @@ int main(){
     float areakm1;
     float pib1;
     int pontosturisticos1;
+    float densidadepopulacional1;
+    float pibpercapta1;
 
     //Entrada de dados da primeira carta
     printf("Digite a letra do Estado da carta 1 ('A' a 'H'): \n");
@@ -32,6 +34,10 @@ int main(){
     printf("Quantos pontos turísticos tem nessa cidade 1? \n");
     scanf("%d", &pontosturisticos1);
 
+    densidadepopulacional1 = (float) populacao1 / areakm1;
+    pibpercapta1 = (float) pib1 / populacao1;
+    
+    
 
 
     //Variáveis da segunda carta.
@@ -42,6 +48,8 @@ int main(){
     float areakm2;
     float pib2;
     int pontosturisticos2;
+    float densidadepopulacional2;
+    float pibpercapta2;
 
     //Entrada de dados da segunda carta
     printf("Digite a letra do Estado da carta 2 ('A' a 'H'): \n");
@@ -65,6 +73,10 @@ int main(){
     printf("Quantos pontos turísticos tem nessa cidade da carta 2? \n");
     scanf("%d", &pontosturisticos2);
 
+    densidadepopulacional2 = (float) populacao2 / areakm2;
+    pibpercapta2 = (float) pib2 / populacao2;
+
+
 
     //Visualização dos dados das cartas
     printf("\nCarta 1: \n");// Descobri que se fizer assim, vira quase um título.
@@ -75,6 +87,9 @@ int main(){
     printf("A área da cidade é de %.2f Km² \n", areakm1);  // %.2f é para exibir um número de ponto flutuante com duas casas decimais.
     printf("O PIB da cidade é de R$ %.2f bilhões \n", pib1);
     printf("A cidade possui %d pontos turísticos \n", pontosturisticos1);
+    printf("A densidade populacional da cidade número 1 é de %.2f habitantes/km² \n", densidadepopulacional1);
+    printf("O PIB per capta da cidade número 1 é de R$ %.2f \n", pibpercapta1);
+
 
 
     printf("\nCarta 2: \n"); // Descobri que se fizer assim, vira quase um título.
@@ -85,6 +100,10 @@ int main(){
     printf("A área da cidade é de %.2f Km² \n", areakm2);  // %.2f é para exibir um número de ponto flutuante com duas casas decimais.
     printf("O PIB da cidade é de R$ %.2f bilhões \n", pib2);
     printf("A cidade possui %d pontos turísticos \n", pontosturisticos2);
+    printf("A densidade populacional da cidade número 2 é de %.2f habitantes/km² \n", densidadepopulacional2);
+    printf("O PIB per capta da cidade número 2 é de R$ %.2f \n", pibpercapta2);
+
+
 
     return 0;
 }
