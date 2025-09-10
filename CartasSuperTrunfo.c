@@ -1,6 +1,8 @@
+#include <stdio.h> 
+
 int main(){
-    //Variáveis da primeira carta.
-    char estado1; //Como é apenas uma letra, não precisa do array
+    // Variáveis da primeira carta
+    char estado1;
     char codigocarta1[20];
     char nomecidade1[50];
     unsigned long int populacao1;
@@ -11,18 +13,18 @@ int main(){
     float pibpercapta1;
     float superpoder1;
 
-    //Entrada de dados da primeira carta
+    // Entrada de dados da primeira carta
     printf("Digite a letra do Estado da carta 1 ('A' a 'H'): \n");
-    scanf(" %c", &estado1); // O espaço antes de %c é para evitar problemas com espaços em branco deixados no buffer de entrada.
+    scanf(" %c", &estado1);
 
     printf("Digite o código da carta 1 ('01' a '04') \n");
-    scanf(" %s", codigocarta1); //codigocarta1 é um array, sendo assim, não precisa do operador "&"
+    scanf(" %s", codigocarta1);
 
     printf("Digite o nome da cidade da carta 1 (Não use espaços nem acentos): \n");
-    scanf("%s", nomecidade1); //nomecidade1 é um array, sendo assim, não precisa do operador "&"
+    scanf("%s", nomecidade1);
 
     printf("Qual a população da cidade da carta 1? \n");
-    scanf("%d", &populacao1);
+    scanf("%lu", &populacao1); // Usar %lu para unsigned long int
 
     printf("Qual a área da cidade da carta 1 (em km²)? \n");
     scanf("%f", &areakm1);
@@ -33,15 +35,13 @@ int main(){
     printf("Quantos pontos turísticos tem nessa cidade 1? \n");
     scanf("%d", &pontosturisticos1);
 
+    // Cálculos da carta 1
     densidadepopulacional1 = (float) populacao1 / areakm1;
     pibpercapta1 = (float) pib1 / populacao1;
-    superpoder1 = populacao1 + areakm1 + pib1 + pontosturisticos1 + pibpercapta1 + (1 / densidadepopulacional1);
-    
-    
+    superpoder1 = populacao1 + areakm1 + pib1 + pontosturisticos1 + pibpercapta1 + (1.0f / densidadepopulacional1); // CORRIGIDO
 
-
-    //Variáveis da segunda carta.
-    char estado2; //Como é apenas uma letra, não precisa do array
+    // Variáveis da segunda carta
+    char estado2;
     char codigocarta2[20];
     char nomecidade2[50];
     unsigned long int populacao2;
@@ -52,18 +52,18 @@ int main(){
     float pibpercapta2;
     float superpoder2;
 
-    //Entrada de dados da segunda carta
+    // Entrada de dados da segunda carta
     printf("Digite a letra do Estado da carta 2 ('A' a 'H'): \n");
-    scanf(" %c", &estado2); // O espaço antes de %c é para evitar problemas com espaços em branco deixados no buffer de entrada.
-    
+    scanf(" %c", &estado2);
+
     printf("Digite o código da carta 2 ('01' a '04') \n");
-    scanf(" %s", codigocarta2); //codigocarta2 é um array, sendo assim, não precisa do operador "&"
+    scanf(" %s", codigocarta2);
 
     printf("Digite o nome da cidade da carta 2 (Não use espaços nem acentos): \n");
-    scanf("%s", nomecidade2); //nomecidade2 é um array, sendo assim, não precisa do operador "&"
+    scanf("%s", nomecidade2);
 
     printf("Qual a população da cidade da carta 2? \n");
-    scanf("%d", &populacao2);
+    scanf("%lu", &populacao2); 
 
     printf("Qual a área da cidade da carta 2 (em km²)? \n");
     scanf("%f", &areakm2);
@@ -74,42 +74,35 @@ int main(){
     printf("Quantos pontos turísticos tem nessa cidade da carta 2? \n");
     scanf("%d", &pontosturisticos2);
 
+    // Cálculos da carta 2
     densidadepopulacional2 = (float) populacao2 / areakm2;
     pibpercapta2 = (float) pib2 / populacao2;
-    superpoder2 = populacao2 + areakm2 + pib2 + pontosturisticos2 + pibpercapta2 + (1 / densidadepopulacional2);
+    superpoder2 = populacao2 + areakm2 + pib2 + pontosturisticos2 + pibpercapta2 + (1.0f / densidadepopulacional2);
 
-
-
-    //Visualização dos dados das cartas
-    printf("\nCarta 1: \n");// Descobri que se fizer assim, vira quase um título.
-    printf("A Letra e o código são: %c", estado1);
-    printf("%s\n", codigocarta1);
-    printf("O nome da cidade é: %s\n", nomecidade1);
-    printf("A população da cidade é de %d milhões de habitantes \n", populacao1);
-    printf("A área da cidade é de %.2f Km² \n", areakm1);  // %.2f é para exibir um número de ponto flutuante com duas casas decimais.
-    printf("O PIB da cidade é de R$ %.2f bilhões \n", pib1);
-    printf("A cidade possui %d pontos turísticos \n", pontosturisticos1);
-    printf("A densidade populacional da cidade número 1 é de %.2f habitantes/km² \n", densidadepopulacional1);
-    printf("O PIB per capta da cidade número 1 é de R$ %.2f \n", pibpercapta1);
+    // Exibição dos dados das cartas
+    printf("\nCarta 1: \n");
+    printf("Estado e Código: %c%s\n", estado1, codigocarta1); // CORRIGIDO
+    printf("Nome da Cidade: %s\n", nomecidade1);
+    printf("População: %lu habitantes\n", populacao1); // CORRIGIDO
+    printf("Área: %.2f Km²\n", areakm1);
+    printf("PIB: R$ %.2f\n", pib1);
+    printf("Pontos Turísticos: %d\n", pontosturisticos1);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadepopulacional1);
+    printf("PIB per Capita: R$ %.2f\n", pibpercapta1);
     printf("Super Poder: %.2f\n", superpoder1);
 
-
-
-    printf("\nCarta 2: \n"); // Descobri que se fizer assim, vira quase um título.
-    printf("A Letra e o código são: %c", estado2);
-    printf("%s\n", codigocarta2);
-    printf("O nome da cidade é: %s\n", nomecidade2);
-    printf("A população da cidade é de %d milhões de habitantes \n", populacao2);
-    printf("A área da cidade é de %.2f Km² \n", areakm2);  // %.2f é para exibir um número de ponto flutuante com duas casas decimais.
-    printf("O PIB da cidade é de R$ %.2f bilhões \n", pib2);
-    printf("A cidade possui %d pontos turísticos \n", pontosturisticos2);
-    printf("A densidade populacional da cidade número 2 é de %.2f habitantes/km² \n", densidadepopulacional2);
-    printf("O PIB per capta da cidade número 2 é de R$ %.2f \n", pibpercapta2);
+    printf("\nCarta 2: \n");
+    printf("Estado e Código: %c%s\n", estado2, codigocarta2);
+    printf("Nome da Cidade: %s\n", nomecidade2);
+    printf("População: %lu habitantes\n", populacao2);
+    printf("Área: %.2f Km²\n", areakm2);
+    printf("PIB: R$ %.2f\n", pib2);
+    printf("Pontos Turísticos: %d\n", pontosturisticos2);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadepopulacional2);
+    printf("PIB per Capita: R$ %.2f\n", pibpercapta2);
     printf("Super Poder: %.2f\n", superpoder2);
 
-
-
-    //Comparação das cartas
+    // Comparação das cartas
     printf("\nComparação de Cartas:\n");
     printf("População: Carta %d venceu (%d)\n", populacao1 > populacao2 ? 1 : 2, populacao1 > populacao2);
     printf("Área: Carta %d venceu (%d)\n", areakm1 > areakm2 ? 1 : 2, areakm1 > areakm2);
@@ -119,22 +112,5 @@ int main(){
     printf("PIB per Capita: Carta %d venceu (%d)\n", pibpercapta1 > pibpercapta2 ? 1 : 2, pibpercapta1 > pibpercapta2);
     printf("Super Poder: Carta %d venceu (%d)\n", superpoder1 > superpoder2 ? 1 : 2, superpoder1 > superpoder2);
 
-
-
-
     return 0;
 }
-
-
-/*
-printf(" %formato2 %formato3", variavel1, variavel2, variavel3)
-
-%d: Imprime um inteiro no formato decimal
-%i: Equivalente a %d.
-%f: Imprime um nbúmero de ponto flutuante no formato padrão.
-%e: Imprime um número de ponto flutuante na notação científica. 
-%c: Imprime um único caractere
-%s: Imprime uma string (Cadeia de caracteres)
-\n: pula linha
-
-*/
